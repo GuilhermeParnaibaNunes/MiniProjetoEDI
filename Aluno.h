@@ -36,5 +36,17 @@ LOGO, PRIMEIRO SE DEFINE DISCIPLINAS EM UM ARQUIVO PRÓPRIO E DEPOIS ALUNO TAMBÉM
 DISCIPLINAS É ADICIONADO A LISTA DE DISCIPLINAS, LISTA DE DISCIPLINAS É ADICIONADA A ALUNOS
 POR FIM ALUNOS É ADICIONADO A LISTA DE ALUNOS*/
 
-
+/*Setter para um aluno
+    // - Retorna 1 para procedimento bem-sucedido;
+    // - Retorna 0 para procedimento malsucedido;
+    // - Retorna -1 para RGM inválido;
+    // - Recebe ponteiro para o objeto aluno.
+    // - Recebe RGM a ser cadastrado.
+int setAluno(t_Aluno *a, char *RGM){
+  if(sizeof(RGM)!=(8*sizeof(char)))
+    return -1;
+  a->RGM = RGM;
+    return 0;
+}
+*/
 

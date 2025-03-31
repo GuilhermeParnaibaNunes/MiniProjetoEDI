@@ -1,0 +1,10 @@
+# depslib dependency file v1.0
+1742990799 source:c:\users\guilh\onedrive\Área de trabalho\codeblocks\estudos\ed\miniprojetoedi\listaedisciplinas.c
+	"ListaEDisciplinas.h"
+
+1742909828 c:\users\guilh\onedrive\Área de trabalho\codeblocks\estudos\ed\miniprojetoedi\listaedisciplinas.h
+
+1743082446 source:c:\users\guilh\onedrive\Área de trabalho\codeblocks\estudos\ed\miniprojetoedi\main.c
+	<stdio.h>
+	<stdlib.h>
+

@@ -1,7 +1,7 @@
-#include <Structures.h>
+#include <Aluno.h>
 #define	MAX 60
-#ifndef LISTASEQ_H_
-#define LISTASEQ_H_
+#ifndef LISTASALUNOS_H_
+#define LISTASALUNOS_H_
 
 /*Estrutura de nome ListaSEQ*/
     // - Campo aluno: array do tipo t_Aluno;
@@ -163,7 +163,29 @@ void ExibirAlunoR(ListaSEQ *, char *);
     // - Recebe ponteiro para a lista e posição do contao.
 //void ExibirAlunosC(ListaSEQ *, int);
 
-#endif // LISTASEQ_H_
+#endif // LISTASALUNOS_H_
+
+/*ListaSAlunos.h
+- Criar;
+- Válida;
+- Vazia;
+- Cheia;
+- Tamanho ocupado;
+- Tamanho restante;
+- Inserir elemento + busca binária;
+- Procurar elemento por nome*;
+- Procurar elemento por RGM;
+- Apagar elemento por posição;
+- Apagar elemento por nome*;
+- Apagar elemento por RGM;
+- Desloca esq.;
+- Desloca dir.;
+- Exibir lista;
+- Exibir aluno por posição;
+- Exibir aluno por nome*;
+- Exibir aluno por RGM;
+- Exibir alunos por curso*.
+*/
 
 /*DISCLAIMER*/
 // Tamanho e posição são sempre tratados em termos não computacionais, ou seja:

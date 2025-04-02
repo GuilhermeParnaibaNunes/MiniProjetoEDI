@@ -31,6 +31,9 @@
 		<Compiler>
 			<Add option="-Wall" />
 		</Compiler>
+		<Unit filename="Aluno.c">
+			<Option compilerVar="CC" />
+		</Unit>
 		<Unit filename="Aluno.h" />
 		<Unit filename="Disciplina.c">
 			<Option compilerVar="CC" />
@@ -44,10 +47,6 @@
 			<Option compilerVar="CC" />
 		</Unit>
 		<Unit filename="ListaSAlunos.h" />
-		<Unit filename="Structures.c">
-			<Option compilerVar="CC" />
-		</Unit>
-		<Unit filename="Structures.h" />
 		<Unit filename="main.c">
 			<Option compilerVar="CC" />
 		</Unit>

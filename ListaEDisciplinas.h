@@ -22,7 +22,6 @@ t_listaEDisciplina criaNoD();
 /*Verifica se a lista está vazia:*/
     // - Retorna 1 para verdadeiro;
     // - Retorna 0 para falso;
-    // - Retorna -1 para valor inválido de elementos;
     // - Recebe a lista sob análise.
 int Vazia(t_listaEDisciplina);
 
@@ -35,16 +34,17 @@ int Tamanho(t_listaEDisciplina);
     // - Retorna 1 para procedimento bem-sucedido;
     // - Retorna 0 para procedimento malsucedido;
     // - Recebe a lista sob análise.
-    // - Recebe código da disciplina;
-    // - Recebe nota da disciplina.
-int Inserir(t_listaEDisciplina, t_Disciplina);
+    // - Recebe a disciplina;
+int Inserir(t_listaEDisciplina *, t_Disciplina);
 
 /*Remove um elemento por posição na lista:*/
     // - Retorna 1 para procedimento bem-sucedido;
     // - Retorna 0 para procedimento malsucedido;
+    // - Retorna -1 para posição inválida;
+    // - Retorna -2 para lista vazia;
     // - Recebe a lista sob analise
     // - Recebe posição da remoção.
-int RemoverP(t_listaEDisciplina, int);
+int RemoverP(t_listaEDisciplina *, int);
 
 /*Remove um elemento por nome:*/
     // - Retorna 1 para procedimento bem-sucedido;
@@ -58,14 +58,14 @@ int RemoverP(t_listaEDisciplina, int);
     // - Retorna 0 para procedimento malsucedido;
     // - Recebe a lista sob analise
     // - Recebe código do elemento a ser removido.
-int RemoverR(t_listaEDisciplina, char *);
+int RemoverC(t_listaEDisciplina, char *);
 
 /*Procura um elemento na lista pela sua posição:*/
     // - Retorna o item procurado;
     // - Retorna -1 para posição inválida;
     // - Recebe a lista sob análise;
     // - Recebe a posição do item a ser procurado;
-int ProcurarR(t_listaEDisciplina, int);
+int ProcurarP(t_listaEDisciplina, int);
 
 /*Procura um elemento na lista pelo seu nome:*/
     // - Retorna o item procurado;
@@ -79,7 +79,7 @@ int ProcurarR(t_listaEDisciplina, int);
     // - Retorna -1 para código não encontrado;
     // - Recebe a lista sob análise;
     // - Recebe código a ser procurado;
-int ProcurarR(t_listaEDisciplina, char *);
+int ProcurarC(t_listaEDisciplina, char *);
 
 /*Exibe lista:*/ //EXIBIR VOID E COLOCA CÓDIGOS DE ERRO NA MENSAGEM? OU EXIBIR INT E PÕE CÓDIGOS DE ERRO?
     // - Sem retorno;
@@ -106,7 +106,7 @@ void ExibirDisciplinaR(t_listaEDisciplina, char *);
 
 #endif // LISTAEDISCIPLINAS_H_
 
-/*ListaENCAD.h
+/*ListaEDisciplinas.h
 - Criar;
 - Vazia;
 - Tamanho;

@@ -1,3 +1,4 @@
+#include <Aluno.h>
 /*Setter para um aluno*/
     // - Retorna 1 para procedimento bem-sucedido;
     // - Retorna 0 para procedimento malsucedido;

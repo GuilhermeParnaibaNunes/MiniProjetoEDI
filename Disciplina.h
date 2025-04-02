@@ -18,7 +18,7 @@ typedef struct Disciplina{
     // - Retorna um objeto disciplina;
     // - Recebe código da disciplina;
     // - Recebe nota da disciplina.
-Disciplina setDisciplina(char *, float);
+t_Disciplina setDisciplina(char *, float);
 
 #endif // DISCIPLINA_H_
 

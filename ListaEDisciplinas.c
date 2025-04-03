@@ -30,15 +30,18 @@ int Inserir(t_listaEDisciplina *plED, t_Disciplina d){
 }
 
 int RemoverP(t_listaEDisciplina *plED, int p){
-  if(p<1 || (plED->prox == NULL && p>1))
+  if(p<1)
     return -1;
-  if(Vazia(plED))
+  if(Vazia(&plED))
     return -2;
-  t_listaEDisciplina alED, aux = *plED;
+  t_listaEDisciplina alED = NULL, aux = *plED;
   if(aux->prox == NULL){
-    aux = alED;
-    free(aux);
-    return 1;
+    if(p>1)
+      return -1;
+    else
+      aux = alED;
+      free(aux);
+      return 1;
   }
   int i = 0;
   for(; i<p-1; i++){
@@ -58,9 +61,7 @@ int RemoverP(t_listaEDisciplina *plED, int p){
     // - Retorna 0 para procedimento malsucedido;
     // - Recebe a lista sob analise
     // - Recebe nome do elemento a ser removido.
-//int RemoverN(t_listaEDisciplina *plED, char *nome){
-
-}
+//int RemoverN(t_listaEDisciplina *plED, char *nome){}
 
 /*Remove um elemento por código:*/
     // - Retorna 1 para procedimento bem-sucedido;
@@ -70,7 +71,7 @@ int RemoverP(t_listaEDisciplina *plED, int p){
     // - Recebe a lista sob analise
     // - Recebe código do elemento a ser removido.
 int RemoverC(t_listaEDisciplina *plED, char *cod){
-  if(Vazia(plED))
+  if(Vazia(&plED))
     return -2;
   t_listaEDisciplina alED, aux = *plED;
   if(aux->prox == NULL){
@@ -101,7 +102,6 @@ int RemoverC(t_listaEDisciplina *plED, char *cod){
     // - Recebe a posição do item a ser procurado;
 int ProcurarP(t_listaEDisciplina *plED, int p){
   for(int i = 0; i < p; i++){
-    plED ==;
   }
 }
 
@@ -140,16 +140,14 @@ void ExibirDisciplinaP(t_listaEDisciplina lED, int p){
     // - Sem retorno;
     // - Recebe a lista
     // - Recebe nome da disciplina.
-//void ExibirDisciplinaN(t_listaEDisciplina lED, char *nome){
-
-}
+//void ExibirDisciplinaN(t_listaEDisciplina lED, char *nome){}
 
 /*Exibe disciplina por código:*/
     // - Sem retorno;
     // - Recebe a lista
     // - Recebe código da disciplina.
-void ExibirDisciplinaR(t_listaEDisciplina lED, char *cod);
+void ExibirDisciplinaR(t_listaEDisciplina lED, char *cod){
 
-    return noD;
+    return 0;
 }
 

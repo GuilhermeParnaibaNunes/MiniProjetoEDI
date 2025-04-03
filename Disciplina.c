@@ -2,7 +2,7 @@
 
 t_Disciplina setDisciplina(char *cod, float nt){
   t_Disciplina d;
-  d.cod = *cod;
+  strncpy(d.cod, *cod, 8*sizeof(char));
   d.nota = nt;
   return d;
 }

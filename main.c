@@ -1,5 +1,5 @@
-#include <ListaEDisciplinas.h>
-#include <ListaSAlunos.h>
+#include "ListaEDisciplinas.h"
+#include "ListaSAlunos.h"
 
 int main()
 {

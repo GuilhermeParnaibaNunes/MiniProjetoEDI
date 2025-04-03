@@ -67,12 +67,13 @@ int TotalOcupado(t_ListaSAlunos *);
     // - Recebe ponteiro para a lista sob análise.
 int TotalRestante(t_ListaSAlunos *);
 
-/*Insere um novo elemento a lista:*/
+/*Insere um novo aluno a lista:*/
     // - Retorna 1 para procedimento bem-sucedido;
     // - Retorna 0 para procedimento malsucedido;
+    // - Retorna -1 para lista cheia;
+    // - Retorna -2 para lista inválida;
     // - Recebe ponteiro para a lista sob análise.
-    // - Recebe valor a ser inserido
-    // - Recebe posição da inserção.
+    // - Recebe valor de RGM a ser inserido
 int aInserir(t_ListaSAlunos *, char *);
 
 /*Realiza uma busca binária na lista:*/
@@ -95,13 +96,17 @@ int BuscaInsB(t_ListaSAlunos *, char *);
 /*Procura a posição de um elemento na lista pelo seu RGM:*/
     // - Retorna posição do item procurado;
     // - Retorna -1 para RGM não encontrado;
+    // - Retorna -2 para lista inválida;
+    // - Retorna -3 para lista vazia;
     // - Recebe ponteiro para a lista sob análise;
     // - Recebe RGM a ser procurado;
 int ProcurarR(t_ListaSAlunos *, char *);
 
 /*Remove um elemento por posição na lista:*/
     // - Retorna 1 para procedimento bem-sucedido;
-    // - Retorna 0 para procedimento malsucedido;
+    // - Retorna -1 para posição inválida;
+    // - Retorna -2 para lista inválida;
+    // - Retorna -3 para lista vazia;
     // - Recebe ponteiro para a lista sob analise
     // - Recebe posição da remoção.
 int aRemoverP(t_ListaSAlunos *, int);
@@ -115,7 +120,9 @@ int aRemoverP(t_ListaSAlunos *, int);
 
 /*Remove um elemento por RGM:*/
     // - Retorna 1 para procedimento bem-sucedido;
-    // - Retorna 0 para procedimento malsucedido;
+    // - Retorna -1 para posição inválida;
+    // - Retorna -2 para lista inválida;
+    // - Retorna -3 para lista vazia;
     // - Recebe ponteiro para a lista sob analise
     // - Recebe RGM do elemento a ser removido.
 int RemoverR(t_ListaSAlunos *, char *);

@@ -39,7 +39,6 @@ int Inserir(t_listaEDisciplina *, t_Disciplina);
 
 /*Remove um elemento por posição na lista:*/
     // - Retorna 1 para procedimento bem-sucedido;
-    // - Retorna 0 para procedimento malsucedido;
     // - Retorna -1 para posição inválida;
     // - Retorna -2 para lista vazia;
     // - Recebe a lista sob analise
@@ -53,33 +52,28 @@ int RemoverP(t_listaEDisciplina *, int);
     // - Recebe nome do elemento a ser removido.
 //int RemoverN(t_listaEDisciplina *, char *);
 
-/*Remove um elemento por código:*/
-    // - Retorna 1 para procedimento bem-sucedido;
-    // - Retorna 0 para procedimento malsucedido;
-    // - Recebe a lista sob analise
-    // - Recebe código do elemento a ser removido.
 int RemoverC(t_listaEDisciplina *, char *);
 
 /*Procura um elemento na lista pela sua posição:*/
     // - Retorna o item procurado;
-    // - Retorna -1 para posição inválida;
+    // - Retorna NULL para posição inválida;
     // - Recebe a lista sob análise;
     // - Recebe a posição do item a ser procurado;
-int ProcurarP(t_listaEDisciplina *, int);
+t_listaEDisciplina ProcurarP(t_listaEDisciplina *, int);
 
 /*Procura um elemento na lista pelo seu nome:*/
     // - Retorna o item procurado;
-    // - Retorna -1 para nome não encontrado;
+    // - Retorna NULL para nome não encontrado;
     // - Recebe a lista sob análise;
     // - Recebe nome a ser procurado;
-//int ProcurarN(t_listaEDisciplina *, char *);
+//t_listaEDisciplina ProcurarN(t_listaEDisciplina *, char *);
 
 /*Procura um elemento na lista pelo seu código:*/
     // - Retorna o item procurado;
-    // - Retorna -1 para código não encontrado;
+    // - Retorna NULL para código não encontrado;
     // - Recebe a lista sob análise;
     // - Recebe código a ser procurado;
-int ProcurarC(t_listaEDisciplina *, char *);
+t_listaEDisciplina ProcurarC(t_listaEDisciplina *, char *);
 
 /*Exibe lista:*/ //EXIBIR VOID E COLOCA CÓDIGOS DE ERRO NA MENSAGEM? OU EXIBIR INT E PÕE CÓDIGOS DE ERRO?
     // - Sem retorno;

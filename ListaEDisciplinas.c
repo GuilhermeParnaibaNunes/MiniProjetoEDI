@@ -63,13 +63,6 @@ int RemoverP(t_listaEDisciplina *plED, int p){
     // - Recebe nome do elemento a ser removido.
 //int RemoverN(t_listaEDisciplina *plED, char *nome){}
 
-/*Remove um elemento por código:*/
-    // - Retorna 1 para procedimento bem-sucedido;
-    // - Retorna 0 para procedimento malsucedido;
-    // - Retorna -1 para código não encontrado;
-    // - Retorna -2 para lista vazia;
-    // - Recebe a lista sob analise
-    // - Recebe código do elemento a ser removido.
 int RemoverC(t_listaEDisciplina *plED, char *cod){
   if(Vazia(&plED))
     return -2;
@@ -95,14 +88,13 @@ int RemoverC(t_listaEDisciplina *plED, char *cod){
   return 1;
 }
 
-/*Procura um elemento na lista pela sua posição:*/
-    // - Retorna o item procurado;
-    // - Retorna -1 para posição inválida;
-    // - Recebe a lista sob análise;
-    // - Recebe a posição do item a ser procurado;
-int ProcurarP(t_listaEDisciplina *plED, int p){
-  for(int i = 0; i < p; i++){
+t_listaEDisciplina ProcurarP(t_listaEDisciplina *plED, int p){
+  for(int i = 1; i < p; i++){
+    *plED = *plED->prox;
+    if(plED->prox == NULL && i<p-1)
+      return NULL;
   }
+  return &plED;
 }
 
 /*Procura um elemento na lista pelo seu nome:*/
@@ -112,13 +104,13 @@ int ProcurarP(t_listaEDisciplina *plED, int p){
     // - Recebe nome a ser procurado;
 //int ProcurarN(t_listaEDisciplina *plED, char *nome);
 
-/*Procura um elemento na lista pelo seu código:*/
-    // - Retorna o item procurado;
-    // - Retorna -1 para código não encontrado;
-    // - Recebe a lista sob análise;
-    // - Recebe código a ser procurado;
 int ProcurarC(t_listaEDisciplina *plED, char *cod){
-
+  for(int i = 0; !strcmp(plED->disciplina.cod, cod); i++){
+    plED = plED->prox;
+    if(plED->prox == NULL)
+      return NULL;
+  }
+  return &plED;
 }
 
 /*Exibe lista:*/ //EXIBIR VOID E COLOCA CÓDIGOS DE ERRO NA MENSAGEM? OU EXIBIR INT E PÕE CÓDIGOS DE ERRO?

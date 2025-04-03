@@ -67,17 +67,11 @@ int TotalRestante(t_ListaSAlunos *l){
   return (MAX-(l->tam));
 }
 
-/*Insere um novo aluno a lista:*/
-    // - Retorna 1 para procedimento bem-sucedido;
-    // - Retorna 0 para procedimento malsucedido;
-    // - Retorna -1 para lista cheia;
-    // - Retorna -2 para lista inválida;
-    // - Recebe ponteiro para a lista sob análise.
-    // - Recebe valor de RGM a ser inserido
 int aInserir(t_ListaSAlunos *l, char *RGM){
   int pa = 0;
   t_Aluno *aluno;
-  setAluno(aluno, RGM);
+  if(!setAluno(aluno, RGM))
+    return 0;
   if(l->tam == 0){//Caso seja o primeiro item da lista a inserção é simples
     l->aluno[pa] = *aluno;
     l->tam++;
@@ -94,26 +88,6 @@ int aInserir(t_ListaSAlunos *l, char *RGM){
     return 1;
 }
 
-/*int buscaBinaria(int vet[], int ini, int fim, int key) {
-    int meio = ini + (fim-ini)/2;
-
-    if (fim<ini)
-        return -1;
-
-    if (vet[meio] == key) {
-        return meio;
-    }
-    if (vet[meio] < key)
-        return buscaBinaria(vet, meio+1, fim, key);
-    else
-        return buscaBinaria(vet, ini, meio-1, key);
-}
-*/
-
-/*Realiza uma busca binária na lista para inserção:*/
-    // - Retorna posição correta para adição do RGM em ordem crescente;
-    // - Recebe ponteiro para a lista sob análise;
-    // - Recebe número de RGM;
 int BuscaInsB(t_ListaSAlunos *l, char *iRGM){
   if(strcmp(iRGM, l->aluno[l->tam-1].RGM) > 0)
     return l->tam;
@@ -135,10 +109,6 @@ int BuscaInsB(t_ListaSAlunos *l, char *iRGM){
   }
 }
 
-/*Realiza uma busca sequencial na lista:*/
-    // - Retorna posição do item procurado;
-//int BuscaS(t_ListaSAlunos *, int); ???
-
 /*Procura a posição de um elemento na lista pelo seu nome:*/
     // - Retorna posição do item procurado;
     // - Retorna -1 para nome não encontrado;
@@ -146,19 +116,31 @@ int BuscaInsB(t_ListaSAlunos *l, char *iRGM){
     // - Recebe nome a ser procurado;
 //int ProcurarN(t_ListaSAlunos *, char *);
 
-/*Procura a posição de um elemento na lista pelo seu RGM:*/
-    // - Retorna posição do item procurado;
-    // - Retorna -1 para RGM não encontrado;
-    // - Recebe ponteiro para a lista sob análise;
-    // - Recebe RGM a ser procurado;
-int ProcurarR(t_ListaSAlunos *, char *);
+int ProcurarR(t_ListaSAlunos *l, char *iRGM){
+  if(!Valida(l))
+    return -2;
+  if(aVazia(l))
+    return -3;
+  int meio, ini = 0, fim = l->tam-1;
 
-/*Remove um elemento por posição na lista:*/
-    // - Retorna 1 para procedimento bem-sucedido;
-    // - Retorna 0 para procedimento malsucedido;
-    // - Recebe ponteiro para a lista sob analise
-    // - Recebe posição da remoção.
-int aRemoverP(t_ListaSAlunos *, int);
+  while(1){ //Deve haver uma forma mais inteligente de se fazer isso
+    meio = ini + (fim-ini)/2;
+    if(!strcmp(iRGM, l->aluno[meio].RGM))
+      return meio;
+    else if(strcmp(iRGM, l->aluno[meio].RGM) > 0)
+      ini = meio+1;
+    else
+      fim = meio-1;
+  }
+}
+
+int aRemoverP(t_ListaSAlunos *l, int p){
+  if(!Valida(l))
+    return -2;
+  if(aVazia(l))
+    return -3;
+  return DeslocaEsq(l, p);
+}
 
 /*Remove um elemento por nome:*/
     // - Retorna 1 para procedimento bem-sucedido;
@@ -167,12 +149,14 @@ int aRemoverP(t_ListaSAlunos *, int);
     // - Recebe nome do elemento a ser removido.
 //int RemoverN(t_ListaSAlunos *, char *);
 
-/*Remove um elemento por RGM:*/
-    // - Retorna 1 para procedimento bem-sucedido;
-    // - Retorna 0 para procedimento malsucedido;
-    // - Recebe ponteiro para a lista sob analise
-    // - Recebe RGM do elemento a ser removido.
-int RemoverR(t_ListaSAlunos *, char *);
+int RemoverR(t_ListaSAlunos *l, char *iRGM){
+  if(!Valida(l))
+    return -2;
+  if(aVazia(l))
+    return -3;
+  int p = ProcurarR(l, RGM);
+  return DeslocaEsq(l, p);
+}
 
 /*Exibe lista:*/ //EXIBIR VOID E COLOCA CÓDIGOS DE ERRO NA MENSAGEM? OU EXIBIR INT E PÕE CÓDIGOS DE ERRO?
     // - Sem retorno;

@@ -20,6 +20,8 @@ typedef struct Disciplina{
     // - Recebe nota da disciplina.
 t_Disciplina setDisciplina(char *, float);
 
+void div();
+
 #endif // DISCIPLINA_H_
 
 // Expandir para outros Setters com regras próprias antes do setter geral;

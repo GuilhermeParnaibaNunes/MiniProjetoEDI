@@ -6,3 +6,7 @@ t_Disciplina setDisciplina(char *cod, float nt){
   d.nota = nt;
   return d;
 }
+
+void div(){
+  printf("\n\t------------------------------\n");
+}

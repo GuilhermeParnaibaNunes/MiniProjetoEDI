@@ -74,7 +74,7 @@ int TotalRestante(t_ListaSAlunos *);
     // - Retorna -2 para lista inválida;
     // - Recebe ponteiro para a lista sob análise.
     // - Recebe valor de RGM a ser inserido
-int aInserir(t_ListaSAlunos *, char *);
+int aInserir(t_ListaSAlunos *, char *, t_listaEDisciplina *);
 
 /*Realiza uma busca binária na lista:*/
     // - Retorna posição correta para adição do número;

@@ -67,7 +67,7 @@ int TotalRestante(t_ListaSAlunos *l){
   return (MAX-(l->tam));
 }
 
-int aInserir(t_ListaSAlunos *l, char *RGM){
+int aInserir(t_ListaSAlunos *l, char *RGM, t_listaEDisciplina *plED){
   int pa = 0;
   t_Aluno *aluno;
   if(!setAluno(aluno, RGM))
@@ -75,6 +75,7 @@ int aInserir(t_ListaSAlunos *l, char *RGM){
   if(l->tam == 0){//Caso seja o primeiro item da lista a inserção é simples
     l->aluno[pa] = *aluno;
     l->tam++;
+    l->aluno[pa].disciplinas = plED;
     return 1;
   }else if(Cheia(l))
     return -1;
@@ -85,6 +86,7 @@ int aInserir(t_ListaSAlunos *l, char *RGM){
     DeslocaDir(l, pa);
     l->aluno[pa] = *aluno;
     l->tam++;
+    l->aluno[pa].disciplinas = plED;
     return 1;
 }
 
@@ -154,20 +156,23 @@ int RemoverR(t_ListaSAlunos *l, char *iRGM){
     return -2;
   if(aVazia(l))
     return -3;
-  int p = ProcurarR(l, RGM);
+  int p = ProcurarR(l, iRGM);
   return DeslocaEsq(l, p);
 }
 
-/*Exibe lista:*/ //EXIBIR VOID E COLOCA CÓDIGOS DE ERRO NA MENSAGEM? OU EXIBIR INT E PÕE CÓDIGOS DE ERRO?
+/*Exibe lista:*/
     // - Sem retorno;
     // - Recebe ponteiro para a lista.
-void ExibirLista(t_ListaSAlunos *);
+void aExibirLista(t_ListaSAlunos *);
 
 /*Exibe aluno por posição na lista:*/
     // - Sem retorno;
     // - Recebe ponteiro para a lista;
     // - Recebe posição do elemento na lista.
-void ExibirAlunoP(t_ListaSAlunos *, int);
+void ExibirAlunoP(t_ListaSAlunos *l, int p){
+  printf("\n\t*** Aluno: ***\n\t*** RGM: [%s] ***\n\t*** Lista de disciplinas ***", l->aluno[p].RGM);
+  ExibirLista(l->aluno[p].disciplinas);
+}
 
 /*Exibe aluno por nome:*/
     // - Sem retorno;

@@ -75,7 +75,7 @@ t_listaEDisciplina ProcurarP(t_listaEDisciplina *, int);
     // - Recebe código a ser procurado;
 t_listaEDisciplina ProcurarC(t_listaEDisciplina *, char *);
 
-/*Exibe lista:*/ //EXIBIR VOID E COLOCA CÓDIGOS DE ERRO NA MENSAGEM? OU EXIBIR INT E PÕE CÓDIGOS DE ERRO?
+/*Exibe lista:*/
     // - Sem retorno;
     // - Recebe a lista.
 void ExibirLista(t_listaEDisciplina);
@@ -88,15 +88,20 @@ void ExibirDisciplinaP(t_listaEDisciplina, int);
 
 /*Exibe disciplina por nome:*/
     // - Sem retorno;
-    // - Recebe a lista
+    // - Recebe a lista;
     // - Recebe nome da disciplina.
 //void ExibirDisciplinaN(t_listaEDisciplina, char *);
 
 /*Exibe disciplina por código:*/
     // - Sem retorno;
-    // - Recebe a lista
+    // - Recebe a lista;
     // - Recebe código da disciplina.
 void ExibirDisciplinaR(t_listaEDisciplina, char *);
+
+/*Exibe disciplina por código:*/
+    // - Sem retorno;
+    // - Recebe a lista;
+void ExibirDisciplina(t_listaEDisciplina);
 
 #endif // LISTAEDISCIPLINAS_H_
 

@@ -7,6 +7,6 @@ t_Disciplina setDisciplina(char *cod, float nt){
   return d;
 }
 
-void div(){
-  printf("\n\t------------------------------\n");
+void fdiv(){
+  printf("\n\t------------------------------------------------------------------------------------------\n");
 }

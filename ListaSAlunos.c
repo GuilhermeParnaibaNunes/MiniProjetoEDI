@@ -38,9 +38,9 @@ int Cheia(t_ListaSAlunos *l){
 int DeslocaEsq(t_ListaSAlunos *l, int p){
   if(p>l->tam-1 || p<=0 || p>=MAX)
     return -1;
-  t_Aluno aAux;
   for(int i = p; i<=l->tam-1; i++){
     l->aluno[i] = l->aluno[i+1];
+    l->disciplinas[i] = l->disciplinas[i+1];
   }
   return 1;
 }
@@ -48,9 +48,9 @@ int DeslocaEsq(t_ListaSAlunos *l, int p){
 int DeslocaDir(t_ListaSAlunos *l, int p){
   if(p>=l->tam-1 || p<0 || p>=MAX)
     return -1;
-  t_Aluno aAux;
   for(int i = l->tam; i>=p; i--){
     l->aluno[i] = l->aluno[i-1];
+    l->disciplinas[i] = l->disciplinas[i-1];
   }
   return 1;
 }
@@ -75,7 +75,7 @@ int aInserir(t_ListaSAlunos *l, char *RGM, t_listaEDisciplina *plED){
   if(l->tam == 0){//Caso seja o primeiro item da lista a inserção é simples
     l->aluno[pa] = *aluno;
     l->tam++;
-    l->aluno[pa].disciplinas = plED;
+    l->disciplinas[pa] = plED;
     return 1;
   }else if(Cheia(l))
     return -1;
@@ -86,7 +86,7 @@ int aInserir(t_ListaSAlunos *l, char *RGM, t_listaEDisciplina *plED){
     DeslocaDir(l, pa);
     l->aluno[pa] = *aluno;
     l->tam++;
-    l->aluno[pa].disciplinas = plED;
+    l->disciplinas[pa] = plED;
     return 1;
 }
 
@@ -163,7 +163,11 @@ int RemoverR(t_ListaSAlunos *l, char *iRGM){
 /*Exibe lista:*/
     // - Sem retorno;
     // - Recebe ponteiro para a lista.
-void aExibirLista(t_ListaSAlunos *);
+void aExibirLista(t_ListaSAlunos *l){
+  for(int i = 0; i < l->tam; i++){
+    ExibirAlunoP(l, i);
+  }
+}
 
 /*Exibe aluno por posição na lista:*/
     // - Sem retorno;
@@ -171,7 +175,7 @@ void aExibirLista(t_ListaSAlunos *);
     // - Recebe posição do elemento na lista.
 void ExibirAlunoP(t_ListaSAlunos *l, int p){
   printf("\n\t*** Aluno: ***\n\t*** RGM: [%s] ***\n\t*** Lista de disciplinas ***", l->aluno[p].RGM);
-  ExibirLista(l->aluno[p].disciplinas);
+  ExibirLista(l->disciplinas[p]);
 }
 
 /*Exibe aluno por nome:*/
@@ -184,7 +188,9 @@ void ExibirAlunoP(t_ListaSAlunos *l, int p){
     // - Sem retorno;
     // - Recebe ponteiro para a lista
     // - Recebe RGM do aluno.
-void ExibirAlunoR(t_ListaSAlunos *, char *);
+void ExibirAlunoR(t_ListaSAlunos *l, char *iRGM){
+  ExibirAlunoP(l, ProcurarR(l, iRGM));
+}
 
 /*Exibe alunos de um certo curso:*/
     // - Sem retorno;

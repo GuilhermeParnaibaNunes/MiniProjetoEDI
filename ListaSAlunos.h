@@ -8,6 +8,7 @@
     // - Campo tam: tamanho atual da lista;
 typedef struct ListaSAlunos{
     t_Aluno aluno[MAX];
+    t_listaEDisciplina disciplinas[MAX];
     int tam;
 } t_ListaSAlunos;
 

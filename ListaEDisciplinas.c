@@ -26,15 +26,13 @@ int Tamanho(t_listaEDisciplina lED){
 int Inserir(t_listaEDisciplina *plED, t_Disciplina d, int prim){
   t_noD * aux = *plED, * novo = criaNoD();
   novo->disciplina = d;
-  // inser  o na primeira posicao ou em lista vazia
   if(prim){
     if(novo == NULL)
-      return 0; // erro: memoria insuficiente
+      return 0; // memoria insuficiente
     //novo->prox = *plED;
     *plED = novo;
     return 1;
   }
-  // insercao apos a primeira posicao em lista nao vazia
   if(*plED == NULL) {
     *plED = novo;
   }else{
@@ -134,7 +132,6 @@ t_listaEDisciplina ProcurarC(t_listaEDisciplina *plED, char *cod){
     // - Sem retorno;
     // - Recebe a lista.
 void ExibirLista(t_listaEDisciplina lED){
-  puts("t_ListaEDisciplina - ExibirLista");
   if(Vazia(lED)){
     printf("\n\t*** LISTA VAZIA ***\n");
     return ;

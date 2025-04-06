@@ -10,6 +10,5 @@ int setAluno(t_Aluno *a, char *RGM) {
     return -1;
   RGM[8] = '\0';
   strncpy(a->RGM, RGM, (9*sizeof(char)));
-  printf("t_Aluno - setAluno: Aluno[%s]", a->RGM);
   return 1;
 }

@@ -19,7 +19,7 @@ int Valida(t_ListaSAlunos *l){
 }
 
 int aVazia(t_ListaSAlunos *l){
-  if(!Valida(l)){
+  if(Valida(l)){
     if(l->tam == 0)
       return 1;
     else
@@ -39,7 +39,7 @@ int Cheia(t_ListaSAlunos *l){
 }
 
 int DeslocaEsq(t_ListaSAlunos *l, int p){
-  if(p>l->tam-1 || p<=0 || p>=MAX)
+  if(p>l->tam-1 || p<0 || p>=MAX)
     return -1;
   for(int i = p; i<=l->tam-1; i++){
     l->aluno[i] = l->aluno[i+1];
@@ -49,20 +49,14 @@ int DeslocaEsq(t_ListaSAlunos *l, int p){
 }
 
 int DeslocaDir(t_ListaSAlunos *l, int p){
-  puts("ListaSalunos - DeslocaDir");
   if(p>=l->tam || p<0 || p>=MAX){
-    puts("ListaSalunos - DeslocaDir: if(p>=l->tam-1 || p<0 || p>=MAX)");
     return -1;
   }
   t_listaEDisciplina lED, aux;
   for(int i = l->tam; i>p; i--){
-    printf("ListaSalunos - DeslocaDir: for(int i = l->tam; i>=p; i--)\ni = %d\n", i);
     l->aluno[i] = l->aluno[i-1];
-    printf("ListaSalunos - DeslocaDir: l->aluno[i][%s] = l->aluno[i-1][%s]\n", l->aluno[i].RGM, i==l->tam?"i == l->tam":l->aluno[i-1].RGM);
     lED = l->disciplinas[i-1];
     l->disciplinas[i] = l->disciplinas[i-1];
-    printf("ListaSalunos - DeslocaDir: l->disciplinas[i][%s] = l->disciplinas[i-1][%s]\n"
-           "", i==l->tam?"i == l->tam":aux->disciplina.cod, lED->disciplina.cod);
   }
   return 1;
 }
@@ -82,7 +76,7 @@ int TotalRestante(t_ListaSAlunos *l){
 int aInserir(t_ListaSAlunos *l, char *RGM, char *cod, float nota){
   int pa = 0;
   t_Aluno *aluno;
-  if(!setAluno(aluno, RGM))
+  if(setAluno(aluno, RGM) == -1)
     return -3;
   if(l->tam == 0){//Caso seja o primeiro item da lista a inserção é simples
     l->aluno[pa] = *aluno;
@@ -104,16 +98,11 @@ int aInserir(t_ListaSAlunos *l, char *RGM, char *cod, float nota){
 }
 
 int BuscaInsB(t_ListaSAlunos *l, char *iRGM){
-  puts("\nt_ListaSAlunos - BuscaInsB");
-  if(strcmp(iRGM, l->aluno[l->tam-1].RGM) > 0){
-    puts("if(strcmp(iRGM, l->aluno[l->tam-1].RGM) > 0");
+  if(strcmp(iRGM, l->aluno[l->tam-1].RGM) > 0)
     return l->tam;
-  }
 
-  if(strcmp(iRGM, l->aluno[0].RGM) < 0){
-    puts("if(strcmp(iRGM, l->aluno[0].RGM) < 0");
+  if(strcmp(iRGM, l->aluno[0].RGM) < 0)
     return 0;
-  }
 
   int meio, ini = 0, fim = l->tam-1;
   int cmpAtual;
@@ -146,10 +135,10 @@ int ProcurarR(t_ListaSAlunos *l, char *iRGM){
   if(aVazia(l))
     return -3;
   int meio, ini = 0, fim = l->tam-1;
-
+  iRGM[8] = '\0';
   while(ini <= fim){
     meio = ini + (fim-ini)/2;
-    if(!strcmp(iRGM, l->aluno[meio].RGM))
+    if(strcmp(iRGM, l->aluno[meio].RGM) == 0)
       return meio;
     else if(strcmp(iRGM, l->aluno[meio].RGM) > 0)
       ini = meio+1;
@@ -164,7 +153,11 @@ int aRemoverP(t_ListaSAlunos *l, int p){
     return -2;
   if(aVazia(l))
     return -3;
-  return DeslocaEsq(l, p);
+  if(DeslocaEsq(l, p) == 1){
+    l->tam--;
+    return 1;
+  }else
+    return -1;
 }
 
 /*Remove um elemento por nome:*/
@@ -180,13 +173,21 @@ int RemoverR(t_ListaSAlunos *l, char *iRGM){
   if(aVazia(l))
     return -3;
   int p = ProcurarR(l, iRGM);
-  return DeslocaEsq(l, p);
+  if(DeslocaEsq(l, p) == 1){
+    l->tam--;
+    return 1;
+  }else
+    return -1;
 }
 
 /*Exibe lista:*/
     // - Sem retorno;
     // - Recebe ponteiro para a lista.
 void aExibirLista(t_ListaSAlunos *l){
+  if(aVazia(l)){
+    printf("\n\t*** LISTA SA VAZIA ***\n");
+    return ;
+  }
   for(int i = 0; i < l->tam; i++){
     ExibirAlunoP(l, i);
   }
@@ -201,7 +202,7 @@ void ExibirAlunoP(t_ListaSAlunos *l, int p){
     puts("\t*** POSICAO INVALIDA ***\n");
     return ;
   }
-  printf("\n\t*** Aluno: ***\n\t*** RGM: [%s] ***\n\t*** Lista de disciplinas ***", l->aluno[p].RGM);
+  printf("\n\t*** Aluno[%d] ***\n\t*** RGM: [%s] ***\n\t*** Lista de disciplinas ***", p+1, l->aluno[p].RGM);
   ExibirLista(l->disciplinas[p]);
 }
 

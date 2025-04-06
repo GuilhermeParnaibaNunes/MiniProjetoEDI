@@ -25,7 +25,14 @@ t_Disciplina setDisciplina(char *, float);
     // - Recebe a lista;
 void ExibirDisciplina(t_Disciplina);
 
+/*Printa na tela uma divisória*/
 void fdiv();
+
+/*Printa na tela um dado texto em formato padrão*/
+//void printAsText(char *);
+
+/*Printa na tela um dado input em formato padrão*/
+//void printAsQuest(char *);
 
 #endif // DISCIPLINA_H_
 

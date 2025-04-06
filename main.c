@@ -2,7 +2,7 @@
 
 int main(){
   char continuar;
-  int sel, pos;
+  int sel, pos, cErro;
   t_ListaSAlunos lSA;
   t_ListaSAlunos *plSA = &lSA;
   float nota;
@@ -72,8 +72,17 @@ int main(){
       case 2:
         printf("\t*** Qual a posicao do aluno que deseja apagar? ");
         scanf("%d", &sel);
-        aRemoverP(plSA, sel-1);
-        puts("\t*** Aluno removido com sucesso ***");
+    /*Remove um elemento por posição na lista:*/
+    // - Retorna 1 para procedimento bem-sucedido;
+    // - Retorna -1 para posição inválida;
+    // - Retorna -2 para lista inválida;
+    // - Retorna -3 para lista vazia;
+    // - Recebe ponteiro para a lista sob analise
+    // - Recebe posição da remoção.
+        cErro = aRemoverP(plSA, sel-1);
+        printf("\n\t*** %s ***", cErro==1? "Aluno removido com sucesso"
+               :cErro==-1? "Posicao invalida":cErro==-2? "Lista invalida"
+               :cErro==-3? "Lista vazia": "Erro desconhecido");
         fdiv();
         break;
       case 3:

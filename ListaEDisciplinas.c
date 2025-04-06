@@ -24,30 +24,24 @@ int Tamanho(t_listaEDisciplina lED){
 }
 
 int Inserir(t_listaEDisciplina *plED, t_Disciplina d, int prim){
-    t_noD * p, * novo;
-
-    // inser  o na primeira posicao ou em lista vazia
-    if(prim){
-        novo = criaNoD();
-        if(novo == NULL)
-            return 0; // erro: memoria insuficiente
-        novo->disciplina = d;
-        novo->prox = plED;
-        plED = novo;
-        return 1;
-    }
-    // insercao apos a primeira posicao em lista nao vazia
-    p = plED;
-    if(p == NULL)
-         return 0; // erro: posicao invalida
-    novo = criaNoD();
+  t_noD * aux = *plED, * novo = criaNoD();
+  novo->disciplina = d;
+  // inser  o na primeira posicao ou em lista vazia
+  if(prim){
     if(novo == NULL)
-        return 0; // erro: memoria insuficiente
-    novo->disciplina = d;
-    novo->prox = p->prox;
-    p->prox = novo;
-
+      return 0; // erro: memoria insuficiente
+    //novo->prox = *plED;
+    *plED = novo;
     return 1;
+  }
+  // insercao apos a primeira posicao em lista nao vazia
+  if(*plED == NULL) {
+    *plED = novo;
+  }else{
+    novo->prox = aux->prox;
+    (*plED)->prox = novo;
+  }
+  return 1;
 }
 
 int RemoverP(t_listaEDisciplina *plED, int p){
@@ -116,7 +110,7 @@ t_listaEDisciplina ProcurarP(t_listaEDisciplina *plED, int p){
     if(aux->prox == NULL && i<p-1)
       return NULL;
   }
-  return &aux;
+  return aux;
 }
 
 /*Procura um elemento na lista pelo seu nome:*/
@@ -133,7 +127,7 @@ t_listaEDisciplina ProcurarC(t_listaEDisciplina *plED, char *cod){
     if(aux->prox == NULL)
       return NULL;
   }
-  return &aux;
+  return aux;
 }
 
 /*Exibe lista:*/
@@ -145,14 +139,18 @@ void ExibirLista(t_listaEDisciplina lED){
     printf("\n\t*** LISTA VAZIA ***\n");
     return ;
   }
-  do{
-    ExibirDisciplina(lED);
+  while(lED != NULL){
+    ExibirDisciplina(lED->disciplina);
     lED = lED->prox;
-  }while(lED != NULL);
+  }
 }
 
 void ExibirDisciplinaP(t_listaEDisciplina lED, int p){
-  ExibirDisciplina(ProcurarP(lED, p));
+  t_listaEDisciplina node = ProcurarP(lED, p);
+  if(node != NULL)
+    ExibirDisciplina(node->disciplina);
+  else
+    puts("\n\t*** Disciplina não encontrada ***");
 }
 
 /*Exibe disciplina por nome:*/
@@ -162,9 +160,5 @@ void ExibirDisciplinaP(t_listaEDisciplina lED, int p){
 //void ExibirDisciplinaN(t_listaEDisciplina lED, char *nome){}
 
 void ExibirDisciplinaR(t_listaEDisciplina lED, char *cod){
-  ExibirDisciplina(ProcurarC(lED, cod));
-}
-
-void ExibirDisciplina(t_listaEDisciplina lED){
-  printf("\n\t*** Disciplina: [%s] = %.2f\n", lED->disciplina.cod, lED->disciplina.nota);
+  ExibirDisciplina(ProcurarC(lED, cod)->disciplina);
 }

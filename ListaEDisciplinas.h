@@ -98,11 +98,6 @@ void ExibirDisciplinaP(t_listaEDisciplina, int);
     // - Recebe código da disciplina.
 void ExibirDisciplinaR(t_listaEDisciplina, char *);
 
-/*Exibe disciplina por código:*/
-    // - Sem retorno;
-    // - Recebe a lista;
-void ExibirDisciplina(t_listaEDisciplina);
-
 #endif // LISTAEDISCIPLINAS_H_
 
 /*ListaEDisciplinas.h

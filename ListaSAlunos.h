@@ -69,12 +69,14 @@ int TotalOcupado(t_ListaSAlunos *);
 int TotalRestante(t_ListaSAlunos *);
 
 /*Insere um novo aluno a lista:*/
-    // - Retorna 1 para procedimento bem-sucedido;
-    // - Retorna 0 para procedimento malsucedido;
+    // - Retorna posição de inserção do aluno;
+    // - Retorna -3 para procedimento malsucedido;
     // - Retorna -1 para lista cheia;
     // - Retorna -2 para lista inválida;
-    // - Recebe ponteiro para a lista sob análise.
-    // - Recebe valor de RGM a ser inserido
+    // - Recebe ponteiro para a lista sob análise;
+    // - Recebe valor de RGM a ser inserido;
+    // - Recebe código da primeira disciplina do aluno;
+    // - Recebe nota da primeira disciplina do aluno.
 int aInserir(t_ListaSAlunos *, char *, char *cod, float nota);
 
 /*Realiza uma busca binária na lista:*/

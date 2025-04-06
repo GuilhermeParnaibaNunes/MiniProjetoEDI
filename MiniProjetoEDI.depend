@@ -1,30 +1,30 @@
 # depslib dependency file v1.0
-1743915290 source:c:\users\guilh\onedrive\햞ea de trabalho\codeblocks\estudos\ed\miniprojetoedi\listaedisciplinas.c
+1743953117 source:c:\users\guilh\onedrive\햞ea de trabalho\codeblocks\estudos\ed\miniprojetoedi\listaedisciplinas.c
 	"ListaEDisciplinas.h"
 
-1743915224 c:\users\guilh\onedrive\햞ea de trabalho\codeblocks\estudos\ed\miniprojetoedi\listaedisciplinas.h
+1743940829 c:\users\guilh\onedrive\햞ea de trabalho\codeblocks\estudos\ed\miniprojetoedi\listaedisciplinas.h
 	"Disciplina.h"
 
-1743915590 source:c:\users\guilh\onedrive\햞ea de trabalho\codeblocks\estudos\ed\miniprojetoedi\main.c
+1743944471 source:c:\users\guilh\onedrive\햞ea de trabalho\codeblocks\estudos\ed\miniprojetoedi\main.c
 	"ListaSAlunos.h"
 
-1743888466 source:c:\users\guilh\onedrive\햞ea de trabalho\codeblocks\estudos\ed\miniprojetoedi\disciplina.c
+1743919480 source:c:\users\guilh\onedrive\햞ea de trabalho\codeblocks\estudos\ed\miniprojetoedi\disciplina.c
 	"Disciplina.h"
 
-1743886556 c:\users\guilh\onedrive\햞ea de trabalho\codeblocks\estudos\ed\miniprojetoedi\disciplina.h
+1743916285 c:\users\guilh\onedrive\햞ea de trabalho\codeblocks\estudos\ed\miniprojetoedi\disciplina.h
 	<stdio.h>
 	<stdlib.h>
 	<string.h>
 
-1743887519 source:c:\users\guilh\onedrive\햞ea de trabalho\codeblocks\estudos\ed\miniprojetoedi\aluno.c
+1743939609 source:c:\users\guilh\onedrive\햞ea de trabalho\codeblocks\estudos\ed\miniprojetoedi\aluno.c
 	"Aluno.h"
 
 1743886556 c:\users\guilh\onedrive\햞ea de trabalho\codeblocks\estudos\ed\miniprojetoedi\aluno.h
 	"ListaEDisciplinas.h"
 
-1743913487 c:\users\guilh\onedrive\햞ea de trabalho\codeblocks\estudos\ed\miniprojetoedi\listasalunos.h
+1743944591 c:\users\guilh\onedrive\햞ea de trabalho\codeblocks\estudos\ed\miniprojetoedi\listasalunos.h
 	"Aluno.h"
 
-1743915590 source:c:\users\guilh\onedrive\햞ea de trabalho\codeblocks\estudos\ed\miniprojetoedi\listasalunos.c
+1743955792 source:c:\users\guilh\onedrive\햞ea de trabalho\codeblocks\estudos\ed\miniprojetoedi\listasalunos.c
 	"ListaSAlunos.h"
 

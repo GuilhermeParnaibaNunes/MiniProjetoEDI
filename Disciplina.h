@@ -20,6 +20,11 @@ typedef struct Disciplina{
     // - Recebe nota da disciplina.
 t_Disciplina setDisciplina(char *, float);
 
+/*Exibe disciplina:*/
+    // - Sem retorno;
+    // - Recebe a lista;
+void ExibirDisciplina(t_Disciplina);
+
 void fdiv();
 
 #endif // DISCIPLINA_H_

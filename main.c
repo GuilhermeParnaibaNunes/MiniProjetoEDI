@@ -2,7 +2,7 @@
 
 int main(){
   char continuar;
-  int sel;
+  int sel, pos;
   t_ListaSAlunos lSA;
   t_ListaSAlunos *plSA = &lSA;
   float nota;
@@ -40,29 +40,28 @@ int main(){
       case 1:
         printf("\n\t*** Informe o RGM do aluno: ");
         fgets(RGM, sizeof(RGM), stdin);
-        if(lSA.disciplinas[lSA.tam-1] == NULL){
-          puts("lSA.disciplinas[lSA.tam-1] == NULL");
-        }
         while(continuar != 'n'){
           printf("\n\t*** Deseja cadastrar uma %s? (s/n)***\n\t", (sel)?"disciplina":"outra disciplina");
-          scanf("%c", &continuar);
+          scanf(" %c", &continuar);
           getchar();
           if(continuar == 's'){
             printf("\t*** Informe o codigo da disciplina: ");
             fgets(codD, sizeof(codD), stdin);
+            printf("\n\t*** codD = %s\n", codD);
             printf("\n\t*** Informe a nota do aluno na disciplina: ");
             scanf("%f", &nota);
             getchar();
-            if(lSA.disciplinas[lSA.tam-1] == NULL){
-              puts("lSA.disciplinas[lSA.tam-1] == NULL");
-            }
             if(sel)
-              aInserir(plSA, RGM, codD, nota);
+              pos = aInserir(plSA, RGM, codD, nota);
             else
-              Inserir(&lSA.disciplinas[lSA.tam-1], setDisciplina(codD, nota), 0);
+              Inserir(&(lSA.disciplinas[pos]), setDisciplina(codD, nota), 0);
+            printf("\n\t___ POS =  %d___\n", pos);
             sel = 0;
           }else if(continuar == 'n'){
-            printf("\n\t*** Ok! ***");
+            if(sel)
+              printf("\n\t*** Nao foi possivel cadastrar aluno, eh preciso ao menos uma disciplina ***\n");
+            else
+              printf("\n\t*** Ok! ***");
           }else
             printf("\t*** Insira valor valido ***\n");
         }

@@ -16,7 +16,7 @@ typedef struct Aluno{
   //int idade;
   //char curso[256];
   //float mensalidade;
-  char RGM[8];
+  char RGM[9];
 } t_Aluno;
 
 /*Setter para um aluno*/

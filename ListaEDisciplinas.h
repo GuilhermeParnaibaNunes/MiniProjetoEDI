@@ -35,7 +35,7 @@ int Tamanho(t_listaEDisciplina);
     // - Retorna 0 para procedimento malsucedido;
     // - Recebe a lista sob análise.
     // - Recebe a disciplina;
-int Inserir(t_listaEDisciplina *, t_Disciplina);
+int Inserir(t_listaEDisciplina *, t_Disciplina, int);
 
 /*Remove um elemento por posição na lista:*/
     // - Retorna 1 para procedimento bem-sucedido;

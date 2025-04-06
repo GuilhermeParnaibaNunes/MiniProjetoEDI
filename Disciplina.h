@@ -10,7 +10,7 @@
     // - Campo nota: nota tirada pelo aluno na disciplina***;
 typedef struct Disciplina{
   //char nome[256];
-  char cod[7];
+  char cod[8];
   float nota;
 } t_Disciplina;
 

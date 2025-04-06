@@ -6,8 +6,9 @@
     // - Recebe ponteiro para o objeto aluno.
     // - Recebe RGM a ser cadastrado.
 int setAluno(t_Aluno *a, char *RGM) {
-  if (strlen(RGM) != 8)
+  if(strlen(RGM) != 9)
     return -1;
-  strncpy(a->RGM, RGM, (8*sizeof(char)));
+  RGM[8] = '\0';
+  strncpy(a->RGM, RGM, (9*sizeof(char)));
   return 1;
 }

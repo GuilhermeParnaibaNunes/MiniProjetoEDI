@@ -2,6 +2,9 @@
 
 t_ListaSAlunos CriaListaVazia(void){
   t_ListaSAlunos lista;
+  for(int i = 0; i < MAX; i ++){
+    lista.disciplinas[i] = NULL;
+  }
   lista.tam = 0;
   return lista;
 }
@@ -67,7 +70,7 @@ int TotalRestante(t_ListaSAlunos *l){
   return (MAX-(l->tam));
 }
 
-int aInserir(t_ListaSAlunos *l, char *RGM, t_listaEDisciplina *plED){
+int aInserir(t_ListaSAlunos *l, char *RGM, char *cod, float nota){
   int pa = 0;
   t_Aluno *aluno;
   if(!setAluno(aluno, RGM))
@@ -75,7 +78,7 @@ int aInserir(t_ListaSAlunos *l, char *RGM, t_listaEDisciplina *plED){
   if(l->tam == 0){//Caso seja o primeiro item da lista a inserção é simples
     l->aluno[pa] = *aluno;
     l->tam++;
-    l->disciplinas[pa] = plED;
+    Inserir(&l->disciplinas[pa], setDisciplina(cod, nota), 1);
     return 1;
   }else if(Cheia(l))
     return -1;
@@ -86,7 +89,7 @@ int aInserir(t_ListaSAlunos *l, char *RGM, t_listaEDisciplina *plED){
     DeslocaDir(l, pa);
     l->aluno[pa] = *aluno;
     l->tam++;
-    l->disciplinas[pa] = plED;
+    Inserir(&l->disciplinas[pa], setDisciplina(cod, nota), 1);
     return 1;
 }
 

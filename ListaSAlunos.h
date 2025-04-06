@@ -8,7 +8,7 @@
     // - Campo tam: tamanho atual da lista;
 typedef struct ListaSAlunos{
     t_Aluno aluno[MAX];
-    t_listaEDisciplina disciplinas[MAX];
+    t_listaEDisciplina *disciplinas[MAX];
     int tam;
 } t_ListaSAlunos;
 
@@ -75,7 +75,7 @@ int TotalRestante(t_ListaSAlunos *);
     // - Retorna -2 para lista inválida;
     // - Recebe ponteiro para a lista sob análise.
     // - Recebe valor de RGM a ser inserido
-int aInserir(t_ListaSAlunos *, char *, t_listaEDisciplina *);
+int aInserir(t_ListaSAlunos *, char *, char *cod, float nota);
 
 /*Realiza uma busca binária na lista:*/
     // - Retorna posição correta para adição do número;

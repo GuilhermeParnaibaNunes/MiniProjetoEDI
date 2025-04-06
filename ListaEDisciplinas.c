@@ -2,7 +2,11 @@
 
 t_listaEDisciplina criaNoD() {
     t_listaEDisciplina noD = (t_listaEDisciplina) malloc(sizeof(t_noD));
-    if (noD)
+    if(noD == NULL){
+      puts("Alocação de memória falhou");
+      return NULL;
+    }
+    if(noD)
         noD->prox = NULL;
     return noD;
 }
@@ -19,20 +23,37 @@ int Tamanho(t_listaEDisciplina lED){
   return i;
 }
 
-int Inserir(t_listaEDisciplina *plED, t_Disciplina d){
-  t_listaEDisciplina lED = criaNoD();
-  if(lED == NULL)
-    return 0;
-  lED->disciplina = d;
-  lED->prox = *plED;
-  *plED = lED;
-  return 1;
+int Inserir(t_listaEDisciplina *plED, t_Disciplina d, int prim){
+    t_noD * p, * novo;
+
+    // inser  o na primeira posicao ou em lista vazia
+    if(prim){
+        novo = criaNoD();
+        if(novo == NULL)
+            return 0; // erro: memoria insuficiente
+        novo->disciplina = d;
+        novo->prox = plED;
+        plED = novo;
+        return 1;
+    }
+    // insercao apos a primeira posicao em lista nao vazia
+    p = plED;
+    if(p == NULL)
+         return 0; // erro: posicao invalida
+    novo = criaNoD();
+    if(novo == NULL)
+        return 0; // erro: memoria insuficiente
+    novo->disciplina = d;
+    novo->prox = p->prox;
+    p->prox = novo;
+
+    return 1;
 }
 
 int RemoverP(t_listaEDisciplina *plED, int p){
   if(p<1)
     return -1;
-  if(Vazia(&plED))
+  if(Vazia(plED))
     return -2;
   t_listaEDisciplina alED = NULL, aux = plED;
   if(aux->prox == NULL){
@@ -64,7 +85,7 @@ int RemoverP(t_listaEDisciplina *plED, int p){
 //int RemoverN(t_listaEDisciplina *plED, char *nome){}
 
 int RemoverC(t_listaEDisciplina *plED, char *cod){
-  if(Vazia(&plED))
+  if(Vazia(plED))
     return -2;
   t_listaEDisciplina alED, aux = plED;
   if(aux->prox == NULL){
@@ -119,8 +140,11 @@ t_listaEDisciplina ProcurarC(t_listaEDisciplina *plED, char *cod){
     // - Sem retorno;
     // - Recebe a lista.
 void ExibirLista(t_listaEDisciplina lED){
-  if(Vazia(lED))
+  puts("t_ListaEDisciplina - ExibirLista");
+  if(Vazia(lED)){
     printf("\n\t*** LISTA VAZIA ***\n");
+    return ;
+  }
   do{
     ExibirDisciplina(lED);
     lED = lED->prox;

@@ -2,8 +2,9 @@
 
 t_Disciplina setDisciplina(char *cod, float nt){
   t_Disciplina d;
-  strncpy(d.cod, *cod, 8*sizeof(char));
   d.nota = nt;
+  cod[7] = '\0';
+  strncpy(d.cod, cod, 8*sizeof(char));
   return d;
 }
 

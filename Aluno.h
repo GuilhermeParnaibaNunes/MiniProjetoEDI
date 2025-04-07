@@ -27,6 +27,12 @@ typedef struct Aluno{
     // - Recebe RGM a ser cadastrado.
 int setAluno(t_Aluno *, char *);
 
+/*Verifica RGM de aluno fornecido:*/
+    // - Retorna 1 para RGM válido;
+    // - Retorna 0 para RGM fora do padrão;
+    // - Recebe o pretenso RGM;
+int validaRGM(char *);
+
 #endif // ALUNO_H_
 
 /*COMO DISCIPLINAS É O TIPO MAIS INTERNO ELE PRECISA SER DEFINIDO ANTES

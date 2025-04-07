@@ -1,6 +1,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
+#include <ctype.h>
 #ifndef DISCIPLINA_H_
 #define DISCIPLINA_H_
 
@@ -24,6 +25,12 @@ t_Disciplina setDisciplina(char *, float);
     // - Sem retorno;
     // - Recebe a lista;
 void ExibirDisciplina(t_Disciplina);
+
+/*Verifica código de disciplina fornecido:*/
+    // - Retorna 1 para código válido;
+    // - Retorna 0 para código fora do padrão;
+    // - Recebe o pretenso código;
+int validaCOD(char *);
 
 /*Printa na tela uma divisória*/
 void fdiv();

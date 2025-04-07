@@ -5,26 +5,27 @@
 1743940829 c:\users\guilh\onedrive\햞ea de trabalho\codeblocks\estudos\ed\miniprojetoedi\listaedisciplinas.h
 	"Disciplina.h"
 
-1743974369 source:c:\users\guilh\onedrive\햞ea de trabalho\codeblocks\estudos\ed\miniprojetoedi\main.c
+1743987788 source:c:\users\guilh\onedrive\햞ea de trabalho\codeblocks\estudos\ed\miniprojetoedi\main.c
 	"ListaSAlunos.h"
 
-1743972543 source:c:\users\guilh\onedrive\햞ea de trabalho\codeblocks\estudos\ed\miniprojetoedi\disciplina.c
+1743988166 source:c:\users\guilh\onedrive\햞ea de trabalho\codeblocks\estudos\ed\miniprojetoedi\disciplina.c
 	"Disciplina.h"
 
-1743968505 c:\users\guilh\onedrive\햞ea de trabalho\codeblocks\estudos\ed\miniprojetoedi\disciplina.h
+1743987788 c:\users\guilh\onedrive\햞ea de trabalho\codeblocks\estudos\ed\miniprojetoedi\disciplina.h
 	<stdio.h>
 	<stdlib.h>
 	<string.h>
+	<ctype.h>
 
-1743968505 source:c:\users\guilh\onedrive\햞ea de trabalho\codeblocks\estudos\ed\miniprojetoedi\aluno.c
+1743988166 source:c:\users\guilh\onedrive\햞ea de trabalho\codeblocks\estudos\ed\miniprojetoedi\aluno.c
 	"Aluno.h"
 
-1743886556 c:\users\guilh\onedrive\햞ea de trabalho\codeblocks\estudos\ed\miniprojetoedi\aluno.h
+1743987788 c:\users\guilh\onedrive\햞ea de trabalho\codeblocks\estudos\ed\miniprojetoedi\aluno.h
 	"ListaEDisciplinas.h"
 
 1743944591 c:\users\guilh\onedrive\햞ea de trabalho\codeblocks\estudos\ed\miniprojetoedi\listasalunos.h
 	"Aluno.h"
 
-1743974260 source:c:\users\guilh\onedrive\햞ea de trabalho\codeblocks\estudos\ed\miniprojetoedi\listasalunos.c
+1743974631 source:c:\users\guilh\onedrive\햞ea de trabalho\codeblocks\estudos\ed\miniprojetoedi\listasalunos.c
 	"ListaSAlunos.h"
 

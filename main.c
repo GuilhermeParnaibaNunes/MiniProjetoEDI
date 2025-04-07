@@ -2,7 +2,7 @@
 
 int main(){
   char continuar;
-  int sel, pos, cErro;
+  int sel, pos, cErro, val = 0;
   t_ListaSAlunos lSA;
   t_ListaSAlunos *plSA = &lSA;
   float nota;
@@ -38,15 +38,23 @@ int main(){
     getchar();
     switch(sel){
       case 1:
-        printf("\n\t*** Informe o RGM do aluno: ");
-        fgets(RGM, sizeof(RGM), stdin);
+        while(!val){
+          printf("\n\t*** Informe o RGM do aluno: ");
+          fgets(RGM, sizeof(RGM), stdin);
+          val = validaRGM(RGM);
+        }
+        val = 0;
         while(continuar != 'n'){
           printf("\n\t*** Deseja cadastrar uma %s? (s/n) ", sel?"disciplina":"outra disciplina");
           scanf(" %c", &continuar);
           getchar();
           if(continuar == 's'){
-            printf("\n\t*** Informe o codigo da disciplina: ");
-            fgets(codD, sizeof(codD), stdin);
+            while(!val){
+              printf("\n\t*** Informe o codigo da disciplina: ");
+              fgets(codD, sizeof(codD), stdin);
+              val = validaCOD(codD);
+            }
+            val = 0;
             printf("\n\t*** Informe a nota do aluno na disciplina: ");
             scanf("%f", &nota);
             getchar();
@@ -86,7 +94,12 @@ int main(){
         break;
       case 3:
         printf("\n\t*** Qual o RGM do aluno que deseja apagar? ");
-        fgets(RGM, sizeof(RGM), stdin);
+        while(!val){
+          printf("\n\t*** Informe o RGM do aluno: ");
+          fgets(RGM, sizeof(RGM), stdin);
+          val = validaRGM(RGM);
+        }
+        val = 0;
         cErro = RemoverR(plSA, RGM);
         printf("\n\t*** %s ***\n",cErro==1? "Aluno removido com sucesso"
                :cErro==-1? "RGM nao encontrado":cErro==-2? "Lista invalida"
@@ -101,7 +114,12 @@ int main(){
         break;
       case 5:
         printf("\n\t*** Qual o RGM do aluno que deseja visualizar? ");
-        fgets(RGM, sizeof(RGM), stdin);
+        while(!val){
+          printf("\n\t*** Informe o RGM do aluno: ");
+          fgets(RGM, sizeof(RGM), stdin);
+          val = validaRGM(RGM);
+        }
+        val = 0;
         ExibirAlunoR(plSA, RGM);
         fdiv();
         break;
@@ -140,9 +158,6 @@ Sair do sistema.
 
 
 //TO DO:
-// - Instancionar main.c;
-// - Solucionar erros;
-// - Corrigir chars RGM e COD, adicionar unidade extra para o '/0';
 // - Renomear funções de forma mais significativa;
 // - Adicionar dicionário português;
 // - Reestruturar main.c para aproveitar os códigos de erro fornecidos pelas funções;

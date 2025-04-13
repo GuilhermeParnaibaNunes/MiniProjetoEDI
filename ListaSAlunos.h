@@ -44,6 +44,7 @@ int Cheia(t_ListaSAlunos *);
     // - Retorna 1 para procedimento bem-sucedido;
     // - Retorna 0 para procedimento malsucedido;
     // - Retorna -1 para posição de deslocamento inválida;
+    // - Retorna -2 para não foi possível remover lista de disciplinas;
     // - Recebe ponteiro para a lista sob análise.
     // - Recebe posição inicial de deslocamento.
 int DeslocaEsq(t_ListaSAlunos *, int);

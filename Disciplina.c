@@ -21,7 +21,7 @@ int validaCOD(char *cod){
   }
   for(int i = 0; i<7; i++){
     if(!isdigit(cod[i])){
-      printf("\n\t*** Valor fornecido para código de disciplina fora de padrao ***"
+      printf("\n\t*** Valor fornecido para codigo de disciplina fora de padrao ***"
              "\n\t*** Formato: [XXXXXXX] (7 digitos, apenas numeros) ***"
              "\n\t*** Por favor, forneca um valor valido ***\n");
       return 0;

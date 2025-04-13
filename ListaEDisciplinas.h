@@ -33,22 +33,28 @@ int Tamanho(t_listaEDisciplina);
 /*Insere um novo elemento a lista:*/
     // - Retorna 1 para procedimento bem-sucedido;
     // - Retorna 0 para procedimento malsucedido;
-    // - Recebe a lista sob análise.
-    // - Recebe a disciplina;
+    // - Recebe a lista sob análise;
+    // - Recebe a disciplina.
 int Inserir(t_listaEDisciplina *, t_Disciplina, int);
+
+/*Remove todos os elementos de uma lista:*/
+// - Retorna 1 para procedimento bem-sucedido;
+// - Retorna 0 para lista vazia;
+// - Recebe a lista sob análise.
+int ApagaListaD(t_listaEDisciplina);
 
 /*Remove um elemento por posição na lista:*/
     // - Retorna 1 para procedimento bem-sucedido;
     // - Retorna -1 para posição inválida;
     // - Retorna -2 para lista vazia;
-    // - Recebe a lista sob analise
+    // - Recebe a lista sob analise;
     // - Recebe posição da remoção.
 int RemoverP(t_listaEDisciplina *, int);
 
 /*Remove um elemento por nome:*/
     // - Retorna 1 para procedimento bem-sucedido;
     // - Retorna 0 para procedimento malsucedido;
-    // - Recebe a lista sob analise
+    // - Recebe a lista sob analise;
     // - Recebe nome do elemento a ser removido.
 //int RemoverN(t_listaEDisciplina *, char *);
 
@@ -58,21 +64,21 @@ int RemoverC(t_listaEDisciplina *, char *);
     // - Retorna o item procurado;
     // - Retorna NULL para posição inválida;
     // - Recebe a lista sob análise;
-    // - Recebe a posição do item a ser procurado;
+    // - Recebe a posição do item a ser procurado.
 t_listaEDisciplina ProcurarP(t_listaEDisciplina *, int);
 
 /*Procura um elemento na lista pelo seu nome:*/
     // - Retorna o item procurado;
     // - Retorna NULL para nome não encontrado;
     // - Recebe a lista sob análise;
-    // - Recebe nome a ser procurado;
+    // - Recebe nome a ser procurado.
 //t_listaEDisciplina ProcurarN(t_listaEDisciplina *, char *);
 
 /*Procura um elemento na lista pelo seu código:*/
     // - Retorna o item procurado;
     // - Retorna NULL para código não encontrado;
     // - Recebe a lista sob análise;
-    // - Recebe código a ser procurado;
+    // - Recebe código a ser procurado.
 t_listaEDisciplina ProcurarC(t_listaEDisciplina *, char *);
 
 /*Exibe lista:*/

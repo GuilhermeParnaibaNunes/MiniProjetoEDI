@@ -41,6 +41,11 @@ int Cheia(t_ListaSAlunos *l){
 int DeslocaEsq(t_ListaSAlunos *l, int p){
   if(p>l->tam-1 || p<0 || p>=MAX)
     return -1;
+  if(!ApagaListaD(l->disciplinas[p])){
+    printf("\n\t*** Nao foi possivel apagar lista de disciplinas ***"
+           "\n\t*** Lista fornecida já estava vazia ***\n");
+    return -1;
+  }
   for(int i = p; i<=l->tam-1; i++){
     l->aluno[i] = l->aluno[i+1];
     l->disciplinas[i] = l->disciplinas[i+1];
@@ -81,7 +86,7 @@ int aInserir(t_ListaSAlunos *l, char *RGM, char *cod, float nota){
   if(l->tam == 0){//Caso seja o primeiro item da lista a inserção é simples
     l->aluno[pa] = *aluno;
     l->tam++;
-    Inserir(&l->disciplinas[pa], setDisciplina(cod, nota), 1);
+    Inserir(&l->disciplinas[pa], setDisciplina(cod, nota), 1); //Return 0;?
     return pa;
   }else if(Cheia(l))
     return -1;
@@ -93,7 +98,7 @@ int aInserir(t_ListaSAlunos *l, char *RGM, char *cod, float nota){
       DeslocaDir(l, pa);
     l->aluno[pa] = *aluno;
     l->tam++;
-    Inserir(&l->disciplinas[pa], setDisciplina(cod, nota), 1);
+    Inserir(&l->disciplinas[pa], setDisciplina(cod, nota), 1); //Return 0;?
     return pa;
 }
 

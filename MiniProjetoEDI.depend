@@ -1,14 +1,14 @@
 # depslib dependency file v1.0
-1743972543 source:c:\users\guilh\onedrive\햞ea de trabalho\codeblocks\estudos\ed\miniprojetoedi\listaedisciplinas.c
+1744582283 source:c:\users\guilh\onedrive\햞ea de trabalho\codeblocks\estudos\ed\miniprojetoedi\listaedisciplinas.c
 	"ListaEDisciplinas.h"
 
-1743940829 c:\users\guilh\onedrive\햞ea de trabalho\codeblocks\estudos\ed\miniprojetoedi\listaedisciplinas.h
+1744582469 c:\users\guilh\onedrive\햞ea de trabalho\codeblocks\estudos\ed\miniprojetoedi\listaedisciplinas.h
 	"Disciplina.h"
 
-1743987788 source:c:\users\guilh\onedrive\햞ea de trabalho\codeblocks\estudos\ed\miniprojetoedi\main.c
+1744579591 source:c:\users\guilh\onedrive\햞ea de trabalho\codeblocks\estudos\ed\miniprojetoedi\main.c
 	"ListaSAlunos.h"
 
-1743988166 source:c:\users\guilh\onedrive\햞ea de trabalho\codeblocks\estudos\ed\miniprojetoedi\disciplina.c
+1743989326 source:c:\users\guilh\onedrive\햞ea de trabalho\codeblocks\estudos\ed\miniprojetoedi\disciplina.c
 	"Disciplina.h"
 
 1743987788 c:\users\guilh\onedrive\햞ea de trabalho\codeblocks\estudos\ed\miniprojetoedi\disciplina.h
@@ -23,9 +23,9 @@
 1743987788 c:\users\guilh\onedrive\햞ea de trabalho\codeblocks\estudos\ed\miniprojetoedi\aluno.h
 	"ListaEDisciplinas.h"
 
-1743944591 c:\users\guilh\onedrive\햞ea de trabalho\codeblocks\estudos\ed\miniprojetoedi\listasalunos.h
+1744032339 c:\users\guilh\onedrive\햞ea de trabalho\codeblocks\estudos\ed\miniprojetoedi\listasalunos.h
 	"Aluno.h"
 
-1743974631 source:c:\users\guilh\onedrive\햞ea de trabalho\codeblocks\estudos\ed\miniprojetoedi\listasalunos.c
+1744579603 source:c:\users\guilh\onedrive\햞ea de trabalho\codeblocks\estudos\ed\miniprojetoedi\listasalunos.c
 	"ListaSAlunos.h"
 

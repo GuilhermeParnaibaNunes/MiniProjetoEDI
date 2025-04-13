@@ -3,7 +3,7 @@
 t_listaEDisciplina criaNoD() {
     t_listaEDisciplina noD = (t_listaEDisciplina) malloc(sizeof(t_noD));
     if(noD == NULL){
-      puts("Alocação de memória falhou");
+      puts("Alocação de memória falhou"); //Passar p aInserir
       return NULL;
     }
     if(noD)
@@ -42,17 +42,46 @@ int Inserir(t_listaEDisciplina *plED, t_Disciplina d, int prim){
   return 1;
 }
 
+int ApagaListaD(t_listaEDisciplina lED){
+  puts("ListaEDisciplina - ApagaListaD");
+  if(Vazia(lED))
+    return 0;
+  puts("ListaEDisciplina - ApagaListaD: if(Vazia(*plED))");
+  printf("_____Apagando AUX = %s", lED->disciplina.cod);
+  t_noD * aux = lED;
+  printf("_____Apagando AUX = %s", aux->disciplina.cod);
+  puts("ListaEDisciplina - ApagaListaD: t_noD * aux = *plED");
+  t_noD * auxProx;
+  puts("ListaEDisciplina - ApagaListaD: t_noD * auxProx");
+  while(aux != NULL){
+    puts("ListaEDisciplina - ApagaListaD: while(aux != NULL)");
+    auxProx = aux->prox;
+    puts("ListaEDisciplina - ApagaListaD: auxProx = aux->prox");
+    printf("\n\n\t_____Apagando AUX = %s\n\n", aux->disciplina.cod);
+    free(aux);
+    puts("ListaEDisciplina - ApagaListaD: free(aux)");
+    aux = auxProx;
+    puts("ListaEDisciplina - ApagaListaD: aux = auxProx");
+
+  }
+  return 1;
+}
+
 int RemoverP(t_listaEDisciplina *plED, int p){
+  puts("ListaEDisciplinas - RemoverP");
   if(p<1)
     return -1;
   if(Vazia(plED))
     return -2;
   t_listaEDisciplina alED = NULL, aux = plED;
+  puts("ListaEDisciplinas - RemoverP: t_listaEDisciplina alED = NULL, aux = plED");
   if(aux->prox == NULL){
     if(p>1)
       return -1;
     else
       aux = alED;
+      printf("____VAI LIBERAR AUX[%d]", p);
+      ExibirDisciplina(aux->disciplina);
       free(aux);
       return 1;
   }
@@ -65,6 +94,8 @@ int RemoverP(t_listaEDisciplina *plED, int p){
     aux = aux->prox;
   }
   alED->prox = aux->prox;
+  printf("____VAI LIBERAR AUX[%d]", i);
+  ExibirDisciplina(aux->disciplina);
   free(aux);
   return 1;
 }

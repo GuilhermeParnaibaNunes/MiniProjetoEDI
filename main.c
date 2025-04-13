@@ -81,7 +81,6 @@ int main(){
             printf("\n\t*** Insira um valor valido ***\n");
         }
         continuar = 's';
-        puts("");
         fdiv();
         break;
       case 2:

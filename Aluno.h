@@ -1,4 +1,4 @@
-#include <Disciplina.h>
+#include "ListaEDisciplinas.h"
 #ifndef ALUNO_H_
 #define ALUNO_H_
 
@@ -16,8 +16,7 @@ typedef struct Aluno{
   //int idade;
   //char curso[256];
   //float mensalidade;
-  char RGM[8];
-  t_Disciplina disciplinas; //???
+  char RGM[9];
 } t_Aluno;
 
 /*Setter para um aluno*/
@@ -28,6 +27,12 @@ typedef struct Aluno{
     // - Recebe RGM a ser cadastrado.
 int setAluno(t_Aluno *, char *);
 
+/*Verifica RGM de aluno fornecido:*/
+    // - Retorna 1 para RGM válido;
+    // - Retorna 0 para RGM fora do padrão;
+    // - Recebe o pretenso RGM;
+int validaRGM(char *);
+
 #endif // ALUNO_H_
 
 /*COMO DISCIPLINAS É O TIPO MAIS INTERNO ELE PRECISA SER DEFINIDO ANTES
@@ -36,5 +41,17 @@ LOGO, PRIMEIRO SE DEFINE DISCIPLINAS EM UM ARQUIVO PRÓPRIO E DEPOIS ALUNO TAMBÉM
 DISCIPLINAS É ADICIONADO A LISTA DE DISCIPLINAS, LISTA DE DISCIPLINAS É ADICIONADA A ALUNOS
 POR FIM ALUNOS É ADICIONADO A LISTA DE ALUNOS*/
 
-
+/*Setter para um aluno
+    // - Retorna 1 para procedimento bem-sucedido;
+    // - Retorna 0 para procedimento malsucedido;
+    // - Retorna -1 para RGM inválido;
+    // - Recebe ponteiro para o objeto aluno.
+    // - Recebe RGM a ser cadastrado.
+int setAluno(t_Aluno *a, char *RGM){
+  if(sizeof(RGM)!=(8*sizeof(char)))
+    return -1;
+  a->RGM = RGM;
+    return 0;
+}
+*/
 

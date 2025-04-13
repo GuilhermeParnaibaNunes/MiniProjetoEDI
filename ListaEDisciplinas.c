@@ -2,22 +2,19 @@
 
 t_listaEDisciplina criaNoD() {
     t_listaEDisciplina noD = (t_listaEDisciplina) malloc(sizeof(t_noD));
-
-    if (noD)
+    if(noD == NULL){
+      puts("Alocação de memória falhou"); //Passar p aInserir
+      return NULL;
+    }
+    if(noD)
         noD->prox = NULL;
+    return noD;
+}
 
-/*Verifica se a lista está vazia:*/
-    // - Retorna 1 para verdadeiro;
-    // - Retorna 0 para falso;
-    // - Retorna -1 para valor inválido de elementos;
-    // - Recebe a lista sob análise.
 int Vazia(t_listaEDisciplina lED){
   return (lED == NULL);
 }
 
-/*Retorna total de nós na lista:*/
-    // - Retorna número de elementos na lista;
-    // - Recebe a lista sob análise.
 int Tamanho(t_listaEDisciplina lED){
   int i = 0;
   for(; lED->prox != NULL; i++){
@@ -26,23 +23,81 @@ int Tamanho(t_listaEDisciplina lED){
   return i;
 }
 
-/*Insere um novo elemento a lista:*/
-    // - Retorna 1 para procedimento bem-sucedido;
-    // - Retorna 0 para procedimento malsucedido;
-    // - Recebe a lista sob análise.
-    // - Recebe código da disciplina;
-    // - Recebe nota da disciplina.
-int Inserir(t_listaEDisciplina *plED, t_Disciplina d){
-  criaNoD();
+int Inserir(t_listaEDisciplina *plED, t_Disciplina d, int prim){
+  t_noD * aux = *plED, * novo = criaNoD();
+  novo->disciplina = d;
+  if(prim){
+    if(novo == NULL)
+      return 0; // memoria insuficiente
+    //novo->prox = *plED;
+    *plED = novo;
+    return 1;
+  }
+  if(*plED == NULL) {
+    *plED = novo;
+  }else{
+    novo->prox = aux->prox;
+    (*plED)->prox = novo;
+  }
+  return 1;
 }
 
-/*Remove um elemento por posição na lista:*/
-    // - Retorna 1 para procedimento bem-sucedido;
-    // - Retorna 0 para procedimento malsucedido;
-    // - Recebe a lista sob analise
-    // - Recebe posição da remoção.
-int RemoverP(t_listaEDisciplina *plED, int p){
+int ApagaListaD(t_listaEDisciplina lED){
+  puts("ListaEDisciplina - ApagaListaD");
+  if(Vazia(lED))
+    return 0;
+  puts("ListaEDisciplina - ApagaListaD: if(Vazia(*plED))");
+  printf("_____Apagando AUX = %s", lED->disciplina.cod);
+  t_noD * aux = lED;
+  printf("_____Apagando AUX = %s", aux->disciplina.cod);
+  puts("ListaEDisciplina - ApagaListaD: t_noD * aux = *plED");
+  t_noD * auxProx;
+  puts("ListaEDisciplina - ApagaListaD: t_noD * auxProx");
+  while(aux != NULL){
+    puts("ListaEDisciplina - ApagaListaD: while(aux != NULL)");
+    auxProx = aux->prox;
+    puts("ListaEDisciplina - ApagaListaD: auxProx = aux->prox");
+    printf("\n\n\t_____Apagando AUX = %s\n\n", aux->disciplina.cod);
+    free(aux);
+    puts("ListaEDisciplina - ApagaListaD: free(aux)");
+    aux = auxProx;
+    puts("ListaEDisciplina - ApagaListaD: aux = auxProx");
 
+  }
+  return 1;
+}
+
+int RemoverP(t_listaEDisciplina *plED, int p){
+  puts("ListaEDisciplinas - RemoverP");
+  if(p<1)
+    return -1;
+  if(Vazia(plED))
+    return -2;
+  t_listaEDisciplina alED = NULL, aux = plED;
+  puts("ListaEDisciplinas - RemoverP: t_listaEDisciplina alED = NULL, aux = plED");
+  if(aux->prox == NULL){
+    if(p>1)
+      return -1;
+    else
+      aux = alED;
+      printf("____VAI LIBERAR AUX[%d]", p);
+      ExibirDisciplina(aux->disciplina);
+      free(aux);
+      return 1;
+  }
+  int i = 0;
+  for(; i<p-1; i++){
+    alED = aux;
+    if(alED->prox == NULL){
+      return -1;
+    }
+    aux = aux->prox;
+  }
+  alED->prox = aux->prox;
+  printf("____VAI LIBERAR AUX[%d]", i);
+  ExibirDisciplina(aux->disciplina);
+  free(aux);
+  return 1;
 }
 
 /*Remove um elemento por nome:*/
@@ -50,26 +105,41 @@ int RemoverP(t_listaEDisciplina *plED, int p){
     // - Retorna 0 para procedimento malsucedido;
     // - Recebe a lista sob analise
     // - Recebe nome do elemento a ser removido.
-//int RemoverN(t_listaEDisciplina *plED, char *nome){
+//int RemoverN(t_listaEDisciplina *plED, char *nome){}
 
+int RemoverC(t_listaEDisciplina *plED, char *cod){
+  if(Vazia(plED))
+    return -2;
+  t_listaEDisciplina alED, aux = plED;
+  if(aux->prox == NULL){
+    if(!(strcmp(aux->disciplina.cod, cod))){
+      aux = alED;
+      free(aux);
+      return 1;
+    }else
+      return -1;
+  }
+  int i = 0;
+  for(; !strcmp(aux->disciplina.cod, cod); i++){
+    alED = aux;
+    if(alED->prox == NULL){
+      return -1;
+    }
+    aux = aux->prox;
+  }
+  alED->prox = aux->prox;
+  free(aux);
+  return 1;
 }
 
-/*Remove um elemento por código:*/
-    // - Retorna 1 para procedimento bem-sucedido;
-    // - Retorna 0 para procedimento malsucedido;
-    // - Recebe a lista sob analise
-    // - Recebe código do elemento a ser removido.
-int RemoverR(t_listaEDisciplina *plED, char *cod){
-
-}
-
-/*Procura um elemento na lista pela sua posição:*/
-    // - Retorna o item procurado;
-    // - Retorna -1 para posição inválida;
-    // - Recebe a lista sob análise;
-    // - Recebe a posição do item a ser procurado;
-int ProcurarR(t_listaEDisciplina *plED, int p){
-
+t_listaEDisciplina ProcurarP(t_listaEDisciplina *plED, int p){
+  t_listaEDisciplina aux = plED;
+  for(int i = 1; i < p; i++){
+    aux = aux->prox;
+    if(aux->prox == NULL && i<p-1)
+      return NULL;
+  }
+  return aux;
 }
 
 /*Procura um elemento na lista pelo seu nome:*/
@@ -77,46 +147,46 @@ int ProcurarR(t_listaEDisciplina *plED, int p){
     // - Retorna -1 para nome não encontrado;
     // - Recebe a lista sob análise;
     // - Recebe nome a ser procurado;
-//int ProcurarN(t_listaEDisciplina *plED, char *nome);
+//t_listaEDisciplina ProcurarN(t_listaEDisciplina *plED, char *nome);
 
-/*Procura um elemento na lista pelo seu código:*/
-    // - Retorna o item procurado;
-    // - Retorna -1 para código não encontrado;
-    // - Recebe a lista sob análise;
-    // - Recebe código a ser procurado;
-int ProcurarR(t_listaEDisciplina *plED, char *cod){
-
+t_listaEDisciplina ProcurarC(t_listaEDisciplina *plED, char *cod){
+  t_listaEDisciplina aux = plED;
+  for(int i = 0; !strcmp(aux->disciplina.cod, cod); i++){
+    aux = aux->prox;
+    if(aux->prox == NULL)
+      return NULL;
+  }
+  return aux;
 }
 
-/*Exibe lista:*/ //EXIBIR VOID E COLOCA CÓDIGOS DE ERRO NA MENSAGEM? OU EXIBIR INT E PÕE CÓDIGOS DE ERRO?
+/*Exibe lista:*/
     // - Sem retorno;
     // - Recebe a lista.
 void ExibirLista(t_listaEDisciplina lED){
-
+  if(Vazia(lED)){
+    printf("\n\t*** LISTA VAZIA ***\n");
+    return ;
+  }
+  while(lED != NULL){
+    ExibirDisciplina(lED->disciplina);
+    lED = lED->prox;
+  }
 }
 
-/*Exibe disciplina por posição na lista:*/
-    // - Sem retorno;
-    // - Recebe a lista;
-    // - Recebe posição do elemento na lista.
 void ExibirDisciplinaP(t_listaEDisciplina lED, int p){
-
+  t_listaEDisciplina node = ProcurarP(lED, p);
+  if(node != NULL)
+    ExibirDisciplina(node->disciplina);
+  else
+    puts("\n\t*** Disciplina não encontrada ***");
 }
 
 /*Exibe disciplina por nome:*/
     // - Sem retorno;
     // - Recebe a lista
     // - Recebe nome da disciplina.
-//void ExibirDisciplinaN(t_listaEDisciplina lED, char *nome){
+//void ExibirDisciplinaN(t_listaEDisciplina lED, char *nome){}
 
+void ExibirDisciplinaR(t_listaEDisciplina lED, char *cod){
+  ExibirDisciplina(ProcurarC(lED, cod)->disciplina);
 }
-
-/*Exibe disciplina por código:*/
-    // - Sem retorno;
-    // - Recebe a lista
-    // - Recebe código da disciplina.
-void ExibirDisciplinaR(t_listaEDisciplina lED, char *cod);
-
-    return noD;
-}
-

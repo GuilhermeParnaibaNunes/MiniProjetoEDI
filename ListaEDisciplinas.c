@@ -43,26 +43,14 @@ int Inserir(t_listaEDisciplina *plED, t_Disciplina d, int prim){
 }
 
 int ApagaListaD(t_listaEDisciplina lED){
-  puts("ListaEDisciplina - ApagaListaD");
   if(Vazia(lED))
     return 0;
-  puts("ListaEDisciplina - ApagaListaD: if(Vazia(*plED))");
-  printf("_____Apagando AUX = %s", lED->disciplina.cod);
   t_noD * aux = lED;
-  printf("_____Apagando AUX = %s", aux->disciplina.cod);
-  puts("ListaEDisciplina - ApagaListaD: t_noD * aux = *plED");
   t_noD * auxProx;
-  puts("ListaEDisciplina - ApagaListaD: t_noD * auxProx");
   while(aux != NULL){
-    puts("ListaEDisciplina - ApagaListaD: while(aux != NULL)");
     auxProx = aux->prox;
-    puts("ListaEDisciplina - ApagaListaD: auxProx = aux->prox");
-    printf("\n\n\t_____Apagando AUX = %s\n\n", aux->disciplina.cod);
     free(aux);
-    puts("ListaEDisciplina - ApagaListaD: free(aux)");
     aux = auxProx;
-    puts("ListaEDisciplina - ApagaListaD: aux = auxProx");
-
   }
   return 1;
 }

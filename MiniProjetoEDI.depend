@@ -1,31 +1,31 @@
 # depslib dependency file v1.0
-1744582283 source:c:\users\guilh\onedrive\햞ea de trabalho\codeblocks\estudos\ed\miniprojetoedi\listaedisciplinas.c
+1744583155 source:c:\users\guilh\onedrive\햞ea de trabalho\codeblocks\estudos\ed\miniprojetoedi\listaedisciplinas.c
 	"ListaEDisciplinas.h"
 
-1744582469 c:\users\guilh\onedrive\햞ea de trabalho\codeblocks\estudos\ed\miniprojetoedi\listaedisciplinas.h
+1744583155 c:\users\guilh\onedrive\햞ea de trabalho\codeblocks\estudos\ed\miniprojetoedi\listaedisciplinas.h
 	"Disciplina.h"
 
-1744579591 source:c:\users\guilh\onedrive\햞ea de trabalho\codeblocks\estudos\ed\miniprojetoedi\main.c
+1744583730 source:c:\users\guilh\onedrive\햞ea de trabalho\codeblocks\estudos\ed\miniprojetoedi\main.c
 	"ListaSAlunos.h"
 
-1743989326 source:c:\users\guilh\onedrive\햞ea de trabalho\codeblocks\estudos\ed\miniprojetoedi\disciplina.c
+1744583155 source:c:\users\guilh\onedrive\햞ea de trabalho\codeblocks\estudos\ed\miniprojetoedi\disciplina.c
 	"Disciplina.h"
 
-1743987788 c:\users\guilh\onedrive\햞ea de trabalho\codeblocks\estudos\ed\miniprojetoedi\disciplina.h
+1744583155 c:\users\guilh\onedrive\햞ea de trabalho\codeblocks\estudos\ed\miniprojetoedi\disciplina.h
 	<stdio.h>
 	<stdlib.h>
 	<string.h>
 	<ctype.h>
 
-1743988166 source:c:\users\guilh\onedrive\햞ea de trabalho\codeblocks\estudos\ed\miniprojetoedi\aluno.c
+1744583155 source:c:\users\guilh\onedrive\햞ea de trabalho\codeblocks\estudos\ed\miniprojetoedi\aluno.c
 	"Aluno.h"
 
-1743987788 c:\users\guilh\onedrive\햞ea de trabalho\codeblocks\estudos\ed\miniprojetoedi\aluno.h
+1744583155 c:\users\guilh\onedrive\햞ea de trabalho\codeblocks\estudos\ed\miniprojetoedi\aluno.h
 	"ListaEDisciplinas.h"
 
-1744032339 c:\users\guilh\onedrive\햞ea de trabalho\codeblocks\estudos\ed\miniprojetoedi\listasalunos.h
+1744583155 c:\users\guilh\onedrive\햞ea de trabalho\codeblocks\estudos\ed\miniprojetoedi\listasalunos.h
 	"Aluno.h"
 
-1744579603 source:c:\users\guilh\onedrive\햞ea de trabalho\codeblocks\estudos\ed\miniprojetoedi\listasalunos.c
+1744583617 source:c:\users\guilh\onedrive\햞ea de trabalho\codeblocks\estudos\ed\miniprojetoedi\listasalunos.c
 	"ListaSAlunos.h"
 

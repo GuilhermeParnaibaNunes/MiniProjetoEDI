@@ -81,6 +81,7 @@ int main(){
             printf("\n\t*** Insira um valor valido ***\n");
         }
         continuar = 's';
+        puts("");
         fdiv();
         break;
       case 2:
@@ -124,7 +125,7 @@ int main(){
         fdiv();
         break;
       case 6:
-        printf("\t*** Lista completa do SA ***\n");
+        printf("\n\t*** Lista completa do SA ***\n");
         aExibirLista(plSA);
         fdiv();
         break;

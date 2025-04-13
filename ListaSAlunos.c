@@ -207,7 +207,8 @@ void ExibirAlunoP(t_ListaSAlunos *l, int p){
     puts("\t*** POSICAO INVALIDA ***\n");
     return ;
   }
-  printf("\n\t*** Aluno[%d] ***\n\t*** RGM: [%s] ***\n\t*** Lista de disciplinas ***", p+1, l->aluno[p].RGM);
+  printf("\t***************************"
+         "\n\t*** Aluno[%d] ***\n\t*** RGM: [%s] ***\n\t*** Lista de disciplinas ***", p+1, l->aluno[p].RGM);
   ExibirLista(l->disciplinas[p]);
 }
 

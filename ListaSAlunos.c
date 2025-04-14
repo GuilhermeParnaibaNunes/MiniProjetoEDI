@@ -41,7 +41,7 @@ int Cheia(t_ListaSAlunos *l){
 int DeslocaEsq(t_ListaSAlunos *l, int p){
   if(p>l->tam-1 || p<0 || p>=MAX)
     return -1;
-  if(!ApagaListaD(l->disciplinas[p])){
+  if(!ApagaListaD(l->disciplinas[p])){ //Verifica condição e apaga disciplinas do aluno a ser excluído
     printf("\n\t*** Nao foi possivel apagar lista de disciplinas ***"
            "\n\t*** Lista fornecida já estava vazia ***\n");
     return -1;
@@ -86,7 +86,10 @@ int aInserir(t_ListaSAlunos *l, char *RGM, char *cod, float nota){
   if(l->tam == 0){//Caso seja o primeiro item da lista a inserção é simples
     l->aluno[pa] = *aluno;
     l->tam++;
-    Inserir(&l->disciplinas[pa], setDisciplina(cod, nota), 1); //Return 0;?
+    if(!Inserir(&l->disciplinas[pa], setDisciplina(cod, nota), 1)){
+      printf("\n\t*** Nao foi possivel inserir lista de disciplinas ***"
+             "\n\t*** Memória insuficiente ***\n");
+    }
     return pa;
   }else if(Cheia(l))
     return -1;
@@ -160,6 +163,8 @@ int aRemoverP(t_ListaSAlunos *l, int p){
     return -3;
   if(DeslocaEsq(l, p) == 1){
     l->tam--;
+    *(l->aluno[l->tam].RGM) = NULL;
+    l->disciplinas[l->tam] = NULL;
     return 1;
   }else
     return -1;
@@ -180,6 +185,8 @@ int RemoverR(t_ListaSAlunos *l, char *iRGM){
   int p = ProcurarR(l, iRGM);
   if(DeslocaEsq(l, p) == 1){
     l->tam--;
+    *(l->aluno[l->tam].RGM) = NULL;
+    l->disciplinas[l->tam] = NULL;
     return 1;
   }else
     return -1;
@@ -208,7 +215,7 @@ void ExibirAlunoP(t_ListaSAlunos *l, int p){
     return ;
   }
   printf("\t***************************"
-         "\n\t*** Aluno[%d] ***\n\t*** RGM: [%s] ***\n\t*** Lista de disciplinas ***", p+1, l->aluno[p].RGM);
+         "\n\t*** Aluno[%d] ***\n\t*** RGM: [%s] ***\n\t*** Lista de disciplinas ***\n", p+1, l->aluno[p].RGM);
   ExibirLista(l->disciplinas[p]);
 }
 
